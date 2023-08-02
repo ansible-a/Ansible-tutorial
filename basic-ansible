@@ -1,0 +1,16 @@
+ansible all -m gather_facts
+
+ansible all -m dnf -a update_only=true
+ansible all -m dnf -a update_cache=true
+
+# Here --become --ask-become-pass witll ask for Admin user password
+ansible all -m dnf -a update_only=true --become --ask-become-pass
+
+# Used for installing vim
+ansible all -m dnf -a name=vim --become --ask-become-pass
+
+# Used for installing Neofetch
+ansible all -m dnf -a name=neofetch --become --ask-become-pass
+
+# Used for updating all the packages
+ansible all -m dnf -a "name=* state=latest" --become --ask-become-pass
