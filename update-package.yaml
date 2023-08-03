@@ -16,3 +16,10 @@
         - '*'
       state: latest
       update_only: yes
+
+  - name: Updating all Kernel packages
+    ansible.builtin.dnf:
+      name: 
+        "kernel*"
+      state: latest
+  
