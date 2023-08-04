@@ -16,4 +16,6 @@ ansible all -m dnf -a name=neofetch --become --ask-become-pass
 ansible all -m dnf -a "name=* state=latest" --become --ask-become-pass
 
 # Used for removing unnecessary kernels
+# First we need to remove all old  kernel by doing sudo dnf remove kernel-name.
+# then remove the command below to remove old kernel's completely.
 dnf remove $(dnf repoquery --installonly --latest-limit=-1 -q)
